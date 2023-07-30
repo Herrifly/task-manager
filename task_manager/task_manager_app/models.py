@@ -14,7 +14,7 @@ class Task(models.Model):
         Awaiting = 'Awaiting'
         Completed = 'Completed'
 
-    name: str = models.CharField(max_length=100)
+    name: str = models.CharField(max_length=100, null=False)
     description: str = models.TextField()
     deadline: Date = models.DateField()
     priority: str = models.CharField(max_length=6, choices=Priority.choices, default=Priority.High.name)
