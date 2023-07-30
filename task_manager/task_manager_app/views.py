@@ -29,7 +29,6 @@ def tasks(request):
         else:
             tasks = Task.objects.all().order_by('deadline')
 
-    # tasks = Task.objects.order_by('deadline')
     all_tasks = []
 
     for task in tasks:
@@ -50,4 +49,4 @@ def tasks(request):
 def delete(request, id):
     data = get_object_or_404(Task, id=id)
     data.delete()
-    return render(request, 'task-manager-app/tasks.html')
+    return tasks(request)
